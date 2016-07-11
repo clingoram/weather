@@ -25,7 +25,7 @@ $(document).ready(function () {
             $('.description').html(data.weather[0].description); //天氣描述
             $('.wet').html(data.main.humidity + '&nbsp;' + '%');   //濕度
             $('.cld').html(data.clouds.all + '&nbsp;' + '%'); //雲量
-            $('.windS').html(data.wind.speed + '&nbsp' +'kph''); //風速   
+            $('.windS').html(data.wind.speed + '&nbsp' +'kph'); //風速   
 
             dayForecast(lat, lon, units);
         });
