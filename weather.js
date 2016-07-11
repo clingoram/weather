@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var units = "C", lat, lon;
-
+    ////header("Access-Control-Allow-Origin:http://ip-api.com/json")
     function getIP(units) {
         $('.location').empty();
         $.getJSON('http://ip-api.com/json', function (location) {
