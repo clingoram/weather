@@ -36,28 +36,7 @@ h3{
     display:inline-block;
     font-size:40px;
 }
-/*雲*/
-#clouds{
-    background:url(http://www.asteroidmission.org/wp-content/themes/osiris/public_assets/images/cloud-7.png);
-    background-size:100% 300px;
-    width:100%;
-    height:300px;
-    position:absolute;
-    z-index:10;
-    animation:moveClouds 30s infinite linear;
-    transform:translateX(-100%);
-}
-#clouds2{
-    background:url(http://kapooch.com.au/wp-content/uploads/2015/02/nac_cloud.png);
-    background-size:100% 300px;
-    width:100%;
-    height:300px;
-    position:absolute;
-    top:150px;
-    z-index:10;
-    animation:30s linear 12s infinite moveClouds;
-    transform:translateX(-100%);
-}
+
 /*日期*/
 .clock{
     position:fixed;
