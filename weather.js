@@ -2,7 +2,6 @@ $(document).ready(function () {
     var units = "C", lat, lon;
 
     function getIP(units) {
-       // var d = new Date();
         $('.location').empty();
         $.getJSON('http://ip-api.com/json', function (location) {
             $('.location').append( location.city + ', ' + location.country);
@@ -19,10 +18,6 @@ $(document).ready(function () {
             url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=534c4f52d9431381c9322dbc7b834462';
 
         $.getJSON(url, function (data) {
-
-            if (units === 'C') {
-                km = 'kph'
-            }
             
             $('.degree').html(Math.round(data.main.temp));
             $('.deg').html('&deg;C');
@@ -30,7 +25,7 @@ $(document).ready(function () {
             $('.description').html(data.weather[0].description); //天氣描述
             $('.wet').html(data.main.humidity + '&nbsp;' + '%');   //濕度
             $('.cld').html(data.clouds.all + '&nbsp;' + '%'); //雲量
-            $('.windS').html(data.wind.speed + '&nbsp' + 'kph'); //風速   
+            $('.windS').html(data.wind.speed + '&nbsp' +'kph''); //風速   
 
             dayForecast(lat, lon, units);
         });
