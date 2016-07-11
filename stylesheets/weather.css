@@ -1,0 +1,472 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css');
+/*weather icon@import url('https://github.com/erikflowers/weather-icons/blob/master/css/weather-icons.css');*/
+*{
+    padding:0;
+    margin:0;
+}
+body {
+    background-image:url("https://images.unsplash.com/photo-1452215199360-c16ba37005fe?crop=entropy&fit=crop&fm=jpg&h=650&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1375");/*山*/
+    background-repeat:no-repeat;
+    width:100%;
+    height:100%;
+    font-family:Arial;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+header{
+    position:absolute;
+    width:100%;
+    height:40px;
+}
+h1{
+    color:#ffffff;
+    font-size:30px;
+    font-family:'Times New Roman', Times, serif;
+    margin-left:30px;
+    margin-top:20px;
+}
+h2{
+    width:320px;
+    height:30px;
+    display:inline-block;
+    font-size:20px;
+}
+h3{
+    height:30px;
+    display:inline-block;
+    font-size:40px;
+}
+/*雲*/
+#clouds{
+    background:url(http://www.asteroidmission.org/wp-content/themes/osiris/public_assets/images/cloud-7.png);
+    background-size:100% 300px;
+    width:100%;
+    height:300px;
+    position:absolute;
+    z-index:10;
+    animation:moveClouds 30s infinite linear;
+    transform:translateX(-100%);
+}
+#clouds2{
+    background:url(http://kapooch.com.au/wp-content/uploads/2015/02/nac_cloud.png);
+    background-size:100% 300px;
+    width:100%;
+    height:300px;
+    position:absolute;
+    top:150px;
+    z-index:10;
+    animation:30s linear 12s infinite moveClouds;
+    transform:translateX(-100%);
+}
+/*日期*/
+.clock{
+    position:fixed;
+    bottom:93px;
+    left:800px;
+    width:340px;
+    float:right;
+    display:block;
+    text-align:right;
+}
+#date,
+#day,
+#month,
+#year,
+.time{
+    color:#ffffff;
+    font-size:16px;
+}
+
+/*整體*/
+.device{
+    width:990px;
+    height:570px;
+    position:absolute;
+    left:200px;
+    top:3%;
+    background:#000000;
+    opacity:0.75;
+}
+.device:before, 
+.device:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+}
+section {
+    height: calc(100% - 40px);
+    width: 100%;
+    overflow: hidden;
+    background-color:#ff0000;
+    margin-top:20px;
+  }
+/*今日氣溫 第一區*/
+#fiRstday{
+    background:#000000;
+    width:990px;
+    height:400px;
+    position:absolute;
+    top:26px;
+    /*left:290px;*/
+ 
+}
+/*目前所在城市的溫度、濕度等等*/
+.location{
+    position:absolute;
+    width:480px;
+    height:40px;
+    font-size:24px;
+    margin-left:20px;
+    margin-bottom:10px;
+    top:10px;
+    left:340px;
+    letter-spacing:2px;
+    text-align:left;
+}
+.icon{
+    position:absolute;
+    left:430px;
+    top:68px;
+    margin: 0px 0px 0px 0px;
+    font-size: 7em;
+}
+
+/*溫度*/
+.degree{
+    position:absolute;
+    width:90px;
+    left:710px;
+    top:75px;
+    font-size:60px;
+    text-align:center;
+    z-index:10;
+}
+.deg{
+    position:absolute;
+    color:pink;
+    font-size:25px;
+    top:75px;
+    left:820px;
+    text-align:center;
+    z-index:10;
+}
+
+/*描述氣溫*/
+.description{
+    position:absolute;
+    font-size:25px;
+    left:400px;
+    top:180px;
+    border-bottom:2px #ffffff solid;
+    text-align:right;
+    width:530px;
+}
+
+.data{
+    position:absolute;
+    top:240px;
+    left:420px;
+    width:355px;
+    font-size:17px;
+    line-height:10px;
+    height: 73px;
+}
+/*體感溫度，濕度，降雨率，紫外線，空氣品質*/
+.humidity,
+.wind,
+.clouds{
+    list-style:none;
+    text-align:left;
+}
+
+.wet,
+.windS,
+.cld{
+    position:absolute;
+    left:430px;
+    float:right;
+    width:80px;
+}
+
+/*未來一周天氣*/
+#future{
+    background:#000000;
+    width:990px;
+    height:60px;
+    position:absolute;
+    top:420px;
+    overflow:hidden;
+    z-index:10;
+
+}
+#future:hover{
+      top:0px;
+      height:460px;
+      animation: slide-up 8s;
+      animation-duration: 1s;
+      animation-fill-mode: backwards;
+      animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+}
+h4{
+    text-align:center;
+    font-size:24px;
+    margin-top:20px;
+    color:#ffffff;
+    position:absolute;
+    left:600px;
+}
+#daily_Info{
+    position:absolute;
+    top:60px;
+    left:290px;
+    height:360px;
+    width:700px;
+    z-index:2;
+    color:#ffffff;
+    text-align:center;  
+}
+
+.row {
+    width: 90px;
+    height: 230px;
+    margin-left:30px;
+    margin-top:30px;
+    margin-bottom:10px;
+    top:10px;
+    left:10px;
+    display:inline-table;
+    color:#ffffff;
+    font-size:25px;
+    border-top:2px solid #ff6a00;
+    border-bottom:2px solid #ff6a00;
+}
+/*星期字體*/
+.row_h3{
+   margin-bottom: 10px;
+   font-size:35px;
+}
+.img {
+  left:40px;
+}
+/*天氣描述*/
+.status {
+  font-size: 25px;
+  bottom: 18px;
+}
+.row p {
+  margin: 8px;
+}
+/*氣溫*/
+.temp {
+  font-size: 30px;
+  bottom: 10px;
+}
+/*最低溫*/
+.tempH{
+  font-size: 30px;
+  bottom: 10px;
+}
+
+/*旁邊 搜尋、設定icon*/
+.sideIcon{
+    position:relative;
+    top:-10px;
+    width:390px;
+    height:552px;
+    left:-70px;
+    background:#000;
+    overflow:hidden;
+    z-index:10;
+}
+.search{
+    position:absolute;
+    height:80px;
+    width:90px;
+    top:150px;
+} 
+.search a,
+.setting a{
+    display:none;
+}
+#hide{
+    position:absolute;
+    width:260px;
+    height:360px;
+    top:-120px;
+    left:100px;
+    z-index:10;
+    overflow:hidden;
+}
+
+.hidden { 
+  clear: both;
+  width: 260px;
+  height:200px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.hidden .say {
+  display: block;
+  color:#fff;
+  font-size:25px;
+  margin-top:60px;
+  top:10px;
+}
+/*search自動補充城市*/
+ul{
+    cursor: pointer;
+    background-color:#000000;
+    width: 260px;
+    height:280px;
+    overflow-x:hidden;
+}
+li{
+    list-style:none;
+    padding: 7px;
+    padding-left: 15px;
+    width: 260px;
+    color: white;
+}
+li:hover {
+    color:#e84d4d;
+}
+.ui-helper-hidden-accessible {
+    display:none;
+}
+#searchbox {
+    margin: auto;
+    width: 260px;
+    color:#ffffff;
+    margin-bottom: 10px;
+}
+#goButton{
+    position:absolute;
+    left:220px;
+    top:200px;
+    border:none;
+    height:45px;
+    cursor:pointer;
+    color:#ffffff;
+    background:none;
+}
+button [type="submit"]{
+    position:absolute;
+    top:140px;
+    left:-120px;
+}
+#searchBar{
+    width: 260px;
+    height: 30px;
+    color: #fff;
+    top:168px;
+    left:0px;
+    font-size: 17px;
+    border:none;
+    border-bottom:pink 1px solid;
+}
+input[type="text"] {
+    position:absolute;
+    top:140px;
+    left:30px;
+    text-transform: uppercase;
+    background:none;
+    color:#ffffff;
+}
+input[type="text"]:focus {
+  outline: none;
+  color:#ffffff;
+}
+.my-location{
+    position:absolute;
+    width:50px;
+    height:60px;
+    top:-10px;
+    left:20px;
+    color:#ffffff;
+    background-image:url('https://cdn0.iconfinder.com/data/icons/flat-online-2/64/gps_pin_location_map_mapquest_google_maps-128.png');
+    background-size:35px 35px;
+    background-repeat:no-repeat;
+    background-position:center;
+    cursor:pointer;
+}
+/*footer*/
+#footer{
+    position:absolute;
+    left:30px;
+    bottom:10px;
+    width:100%;
+}
+#footer a{
+    color:#000000;
+    z-index:3;
+}
+.copyright,
+.copyauthor{
+    display:block;
+    text-align:center;
+}
+/* Animations */
+@keyframes zoom {
+  0% { 
+    transform: scale(.2); 
+    opacity: 1;
+  }
+  70% { 
+    transform: scale(1); 
+  }
+  100% { 
+    opacity: 1;
+  }
+}
+/*不同瀏覽器*/
+@-moz-keyframes zoom{
+   0% { 
+    transform: scale(.2); 
+    opacity: 1;
+  }
+  70% { 
+    transform: scale(1); 
+  }
+  100% { 
+    opacity: 1;
+  }
+}
+@-webkit-keyframes zoom{
+    0% { 
+    transform: scale(.2); 
+    opacity: 1;
+  }
+  70% { 
+    transform: scale(1); 
+  }
+  100% { 
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+    from {
+        left:-74px;
+    }
+    to {
+        right:40px;
+    }
+}
+@keyframes slide-up {
+  from {
+    top:55px;
+  }
+  to {
+    top:10px;
+  }
+}
+@keyframes moveClouds{
+  from{
+    transform:translateX(100%);
+  }
+  to{
+    transform:translateX(-100%);
+  }
+}
