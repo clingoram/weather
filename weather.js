@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     function getWeather(lat, lon, units) {
         var url;
-            url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=534c4f52d9431381c9322dbc7b834462';
+            url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=API Key';
 
         $.getJSON(url, function (data) {
             
@@ -96,7 +96,7 @@ $(document).ready(function () {
 
     function dayForecast(lat, lon, units) {
         var url, d = new Date();
-        url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&APPID=534c4f52d9431381c9322dbc7b834462';
+        url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&APPID=API Key';
 
         $.getJSON(url, function (data) {
 
