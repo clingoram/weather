@@ -14,8 +14,7 @@ $(document).ready(function () {
     getIP(units);
 
     function getWeather(lat, lon, units) {
-        var url;
-            url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=API Key';
+        var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=API Key';
 
         $.getJSON(url, function (data) {
             
@@ -41,24 +40,30 @@ $(document).ready(function () {
                 $(".icon").html("<i class='wi wi-day-cloudy'></i>");
                 break;
             case '03d':
+            case '03n':
                 $(".icon").html("<i class='wi wi-cloud'></i>");
                 break;
             case '04d':
+            case '04n':
                 $(".icon").html("<i class='wi wi-cloudy'></i>");
                 break;
             case '09d':
+            case '09n':
                 $(".icon").html("<i class='wi wi-sprinkle'></i>");
                 break;
             case '10d':
                 $(".icon").html("<i class='wi wi-day-sprinkle'></i>");
                 break;
             case '11d':
+            case '11n':
                 $(".icon").html("<i class='wi wi-thunderstorm'></i>");
                 break;
             case '13d':
+            case '13n':
                 $(".icon").html("<i class='wi wi-snow'></i>");
                 break;
             case '50d':
+            case '50n':
                 $(".icon").html("<i class='wi wi-strong-wind'></i>");
                 break;
             case '01n':
@@ -67,26 +72,8 @@ $(document).ready(function () {
             case '02n':
                 $(".icon").html("<i class='wi wi-night-alt-cloudy'></i>");
                 break;
-            case '03n':
-                $(".icon").html("<i class='wi wi-cloud'></i>");
-                break;
-            case '04n':
-                $(".icon").html("<i class='wi wi-cloudy'></i>");
-                break;
-            case '09n':
-                $(".icon").html("<i class='wi wi-sprinkle'></i>");
-                break;
             case '10n':
                 $(".icon").html("<i class='wi wi-night-sprinkle'></i>");
-                break;
-            case '11n':
-                $(".icon").html("<i class='wi wi-thunderstorm'></i>");
-                break;
-            case '13n':
-                $(".icon").html("<i class='wi wi-snow'></i>");
-                break;
-            case '50n':
-                $(".icon").html("<i class='wi wi-strong-wind'></i>");
                 break;
             default:
                 $(".icon").html("<i class='wi wi-day-cloudy'></i>");
